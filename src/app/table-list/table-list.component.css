@@ -1,0 +1,22 @@
+  /* custom-icon */
+  span.material-icons{
+    color:  rgb(77, 73, 73);
+    margin: 0 5px 0 5px;
+}
+#icon_1:hover{  
+    color: green;
+    cursor: pointer ;
+}
+#icon_2:hover{  
+    color: blue;
+    cursor: pointer ;
+}
+#icon_3:hover{      
+    color: red;
+    cursor: pointer ;
+}
+     /* ****custom buttom create** */
+.custom_add_employee{
+    margin-left: 20px;
+    margin-top: 0;
+}

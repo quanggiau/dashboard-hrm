@@ -1,0 +1,80 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+            <button mat-raised-button class="btn btn-danger custom_add_employee" (click)="New_Employee()">New Employee </button>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card card-plain">
+                  <div class="card-header card-header-info ">
+                      <h4 class="card-title mt-0"> Table List Employee</h4>
+                      <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table table-hover">
+                              <thead class="">
+                                <th>
+                                    No.
+                                </th>
+                                <th>
+                                    FirstName
+                                </th>
+                                <th>
+                                    LastName
+                              </th>
+                                  <th>
+                                    ID
+                                  </th>
+                                  <th>
+                                    Gender
+                                 </th>
+                                  <th>
+                                    Department
+                                  </th>
+                                  <th>
+                                    Email
+                                  </th>
+                                   <th>
+                                    Action
+                                  </th>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let employee of employees; let i = index">
+                                    <td>
+                                    {{i + 1}}.
+                                    </td>
+                                    <td>
+                                    {{employee.empFirstName}}
+                                    </td>
+                                    <td>
+                                    {{employee.empLastName}}
+                                    </td>
+                                    <td>
+                                    {{employee.empId}}
+                                    </td>
+                                    <td>
+                                    {{employee.empGender}}
+                                    </td>
+                                    <td>
+                                    {{employee.empDepartment}}
+                                    </td>
+                                    <td>
+                                    {{employee.empEmail}}
+                                    </td>
+                                    <td>
+                                        <!-- Update Button -->
+                                        <span class="material-icons" id="icon_2" (click)="Update(employee.id)"> edit </span>
+                                        <!-- Delete Button -->
+                                        <span class="material-icons" id="icon_3" (click)="deleteEmp(employee.id)"> delete</span>
+                                    </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

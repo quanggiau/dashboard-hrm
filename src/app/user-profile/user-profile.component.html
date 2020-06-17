@@ -1,0 +1,174 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Edit Profile</h4>
+                      <p class="card-category">Complete your profile</p>
+                  </div>
+ <!-- ----------------CONTENT PROFILE UPDATE -- NGFOR* ---------------->
+                  <!-- Edit profile information  -->
+                  <div class="card-body">
+                      <form>
+                          <!-- Edit FirstName && LastName -->
+                          <div class="row">
+                            <!-- Edit FirstName -->
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Fist Name" type="text"
+                                       required [(ngModel)]="emp.empFirstName" name="firstName">
+                              </mat-form-field>
+                            </div>
+                            <!-- Edit LastName -->
+                            <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Last Name" type="text"
+                                       required [(ngModel)]="emp.empLastName" name="lastName">
+                              </mat-form-field>
+                            </div>
+                            <!-- Edit ID -->
+                            <div class="col-md-3">
+                              <mat-form-field class="example-full-width">
+                                <input matInput placeholder="ID" type="text"
+                                       required [(ngModel)]="emp.empId" name="empID">
+                              </mat-form-field>
+                            </div>
+                        </div>
+                          <!-- End Edit FirstName && LastName -->
+                          <!-- start edit gender, department, email -->
+                          <div class="row"> 
+                            <!-- edit gender --> 
+                              <div class="col-md-3">
+                                  <!-- <mat-form-field class="example-full-width"> -->
+                                    <!-- <input matInput placeholder="Gender"> -->
+                                    <select class="form-control" id="gender" required [(ngModel)]="emp.empGender" name="Gender">
+                                      <option>Male</option>
+                                      <option>Female</option>
+                                      <option>Other</option>
+                                    </select>
+                                  <!-- </mat-form-field>  -->
+                              </div>
+                              <!-- edit department -->
+                              <div class="col-md-4">
+                                <!-- <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Department" selection>
+                                  </mat-form-field> -->
+                                  <select class="form-control" id="department" required [(ngModel)]="emp.empDepartment" name="Department">
+                                    <option>GA</option>
+                                    <option>DEV-EMS</option>
+                                    <option>DEV-BAS</option>
+                                    <option>BPO</option>
+                                    <option>BAO</option>
+                                    <option>BJL</option>
+                                    <option>DTP</option>
+                                    <option>Other</option>
+                                  </select>
+                              </div>
+                              <!-- edit email -->
+                              <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Email address" type="email"
+                                           required [(ngModel)]="emp.empEmail" name="email">
+                                  </mat-form-field>
+                              </div>
+                          </div>
+                          <!-- end edit gender, department, email -->
+                          <!-- start edit local address -->
+                          <div class="row">
+                              <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Adress (village)" type="text">
+                                </mat-form-field>
+                              </div>
+                              <!-- edit birthday -->
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="BirthDay" type="date"
+                                         required [(ngModel)]="emp.empBirthDay" name="birthday"
+                                          min="1950-01-01" max="2050-12-31">
+                                </mat-form-field>
+                              </div>
+                              <!-- edit startday -->
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="StartDay" type="date"
+                                         [(ngModel)]="emp.empStartDay" name="startday">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <!-- end edit local address -->
+                          <!-- start edit enternal address -->
+                          <div class="row">
+                            <!-- edit CITY -->
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="City" type="text">
+                                </mat-form-field>
+                              </div>
+                              <!-- edit COUNTRY -->
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Country" type="text">
+                                </mat-form-field>
+                              </div>
+                              <!-- edit Commune/xa -->
+                              <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Commune" type="text">
+                                </mat-form-field>
+                              </div>
+                          </div>
+                          <!-- END edit enternal address -->
+                          <!-- start edit about me -->
+                          <div class="row">
+                              <div class="col-md-12">
+                                <label>About Me</label>
+                                <mat-form-field class="example-full-width">
+                                   <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
+                                 </mat-form-field>
+                                  <!-- <div class="form-group">
+
+                                      <div class="form-group">
+                                          <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                          <textarea class="form-control" rows="5"></textarea>
+                                      </div>
+                                  </div> -->
+                              </div>
+                              <!-- button UPDATE PROFILE -->
+                          </div>
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right" (click)="Update()">Update Profile</button>
+                          <div class="clearfix"></div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Card profile here -->
+          <div class="col-md-4">
+              <div class="card card-profile">
+                  <div class="card-avatar">
+                      <a href="javascript:void(0)">
+                          <img class="img" src="./assets/img/faces/marc.jpg" />
+                      </a>
+                  </div>
+                  <div class="card-body">
+                      <!-- Role's Profile -->
+                      <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                      <!-- name's profile -->
+                      <h4 class="card-title">Dao Huu Khanh</h4>
+                      <!-- start deecription content profile  -->
+                      <p class="card-description">
+                          Time Company: 3 years
+                          Expericent: Java, HTML 
+                          Foreign Languge: JPN, English
+                      </p>
+                      <!-- end content profile  -->
+                    <!-- follow button -->
+                      <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
