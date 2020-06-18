@@ -7,8 +7,8 @@ import {employee} from './employee'
   providedIn: 'root'
 })
 export class EmployeeService {
- // private empUrl = 'http://192.168.4.202:8080/emps';
- private empUrl = 'http://localhost:8080/emps';
+  private empUrl = 'http://192.168.4.202:8080/emps';
+// private empUrl = 'http://localhost:8080/emps';
   
   constructor(private http: HttpClient) { }
 
@@ -22,8 +22,8 @@ export class EmployeeService {
   }
   /* Create an employee */
   createEmp (emp: Object): Observable<Object>{      
-    //return this.http.post(`http://192.168.4.202:8080/createEmp`, emp);   //post all//
-    return this.http.post(`http://localhost:8080/createEmp`, emp);
+    return this.http.post(`http://192.168.4.202:8080/createEmp`, emp);   //post all//
+   // return this.http.post(`http://localhost:8080/createEmp`, emp);
   }
 
   /** Update Employees */

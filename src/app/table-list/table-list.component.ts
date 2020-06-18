@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
-import { from, Subscriber } from 'rxjs';
 import { employee } from '../employee';
 import { Router } from '@angular/router';
 
@@ -13,13 +12,16 @@ export class TableListComponent implements OnInit {
   employees = [];
   emp: employee;
   constructor( private empService: EmployeeService,  private router : Router) { }
-
-  ngOnInit() {this.getEmps();}
+  ngOnInit() {
+    this.getEmps();
+  }
 
   /* Take data from serve --> employees*/
   getEmps(): void {
    this.empService.getEmps().subscribe(
-     data =>this.employees = data
+     data => {
+      this.employees = data
+     }
     ); // data sendto employees[]
   }
   

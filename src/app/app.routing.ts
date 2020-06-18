@@ -5,6 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CreateEmployeeComponent } from './create-employee/create-employee.component';
+import { LogInComponent} from './log-in/log-in.component';
+import { from } from 'rxjs';
 
 const routes: Routes =[
   {
@@ -16,21 +18,15 @@ const routes: Routes =[
     component: AdminLayoutComponent,
     children: [{
       path: '',
-      loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-    },
-    // {
-    // path: 'create-employee',
-    // component: CreateEmployeeComponent,}
-    ]
-  },
-    // {
-    //   path: 'create-employee',
-    //   component: CreateEmployeeComponent,
-    //   children: [{
-    //     path: '',
-    //     loadChildren: ''
-    //   }]
-    // }
+      loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'},]
+      },
+      {
+        path: '',
+        component: LogInComponent,
+        children: [{
+          path: '',
+          loadChildren: './log-in/login-layout.module#LoginLayoutModule'},]
+          },
 ];
 
 @NgModule({

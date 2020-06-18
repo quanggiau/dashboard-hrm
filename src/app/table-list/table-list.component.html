@@ -1,6 +1,6 @@
 <div class="main-content">
   <div class="container-fluid">
-      <div class="row">
+      <div class="row" style="margin-top: 20px;">
             <button mat-raised-button class="btn btn-danger custom_add_employee" (click)="New_Employee()">New Employee </button>
       </div>
       <div class="row">
@@ -12,7 +12,7 @@
                   </div>
                   <div class="card-body">
                       <div class="table-responsive">
-                          <table class="table table-hover">
+                          <table [dataSource]="dataSource" class="table table-hover" >
                               <thead class="">
                                 <th>
                                     No.
@@ -69,8 +69,8 @@
                                         <span class="material-icons" id="icon_3" (click)="deleteEmp(employee.id)"> delete</span>
                                     </td>
                                   </tr>
-                              </tbody>
-                          </table>
+                              </tbody>  
+                         </table>
                       </div>
                   </div>
               </div>

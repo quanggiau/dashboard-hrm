@@ -22,8 +22,10 @@ export class CreateEmployeeComponent implements OnInit {
     if(this.emp.empId!=undefined) 
     {
       //console.log('this.emp',this.emp);
-      this.empService.createEmp(this.emp).subscribe();
-      this.router.navigate(['/table-list'])
+      this.empService.createEmp(this.emp).subscribe(data => {
+        this.router.navigate(['/table-list'])
+      });
+      
     }
   }
 }

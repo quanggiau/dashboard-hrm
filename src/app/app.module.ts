@@ -25,7 +25,7 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { from } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
-import { CreateEmployeeComponent } from './create-employee/create-employee.component';
+import { LogInComponent } from './log-in/log-in.component';
 
 @NgModule({
   imports: [
@@ -39,11 +39,12 @@ import { CreateEmployeeComponent } from './create-employee/create-employee.compo
     AppRoutingModule,
     AgmCoreModule.forRoot({
       // apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-    })
+    }),
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    LogInComponent,
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
