@@ -13,7 +13,7 @@ import { CreateEmployeeComponent } from 'app/create-employee/create-employee.com
 export const AdminLayoutRoutes: Routes = [
    
     { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile/:empId',   component: UserProfileComponent },
+    { path: 'employee-profile/:empId',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'project_manage',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },

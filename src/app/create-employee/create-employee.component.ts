@@ -11,6 +11,11 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class CreateEmployeeComponent implements OnInit {
   emp: employee = new employee();
+  // Set selection for gender employee
+ // myControl = new FormControl();
+ // options: string[] = ['Male', 'FeMale', 'Other'];
+   // end Set selection for gender employee
+
   constructor(private empService: EmployeeService,  private router: Router) { }
 
   ngOnInit(): void {

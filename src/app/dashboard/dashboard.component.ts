@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { EmployeeService } from 'app/employee.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +8,20 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  sum_employee: any = 0;
+  sum_projects: any = 10;
 
-  constructor() { }
+  constructor(private empService:EmployeeService ) { }
+
+   /* Take sum employee employees*/
+   getEmps(): void {
+    this.empService.getEmps().subscribe(
+      data => {
+       this.sum_employee = data.length
+        }
+     ); 
+   }
+
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -66,6 +79,9 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
+  /* ----------==========     take sum employee    ==========---------- */
+    this.getEmps();
+
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {

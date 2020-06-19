@@ -1,40 +1,36 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
-import { BrowserModule  } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { CreateEmployeeComponent } from './create-employee/create-employee.component';
-import { LogInComponent} from './log-in/log-in.component';
-import { from } from 'rxjs';
+import { LogInComponent } from './log-in/log-in.component';
 
-const routes: Routes =[
+const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'dashboard',
+    path: 'login',
+    redirectTo: 'login',
     pathMatch: 'full',
   }, {
     path: '',
     component: AdminLayoutComponent,
     children: [{
       path: '',
-      loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'},]
-      },
-      {
-        path: '',
-        component: LogInComponent,
-        children: [{
-          path: '',
-          loadChildren: './log-in/login-layout.module#LoginLayoutModule'},]
-          },
+      loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
+    },]
+  },
+  {
+    path: 'login',
+    component: LogInComponent,
+  },
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-       useHash: true
+    RouterModule.forRoot(routes, {
+      useHash: true
     })
   ],
   exports: [

@@ -33,7 +33,7 @@ export class TableListComponent implements OnInit {
   Update(empID: number){
     //console.log('detail');
    // this.router.navigate([`user-profile/${empID}`]);
-    this.router.navigate([`user-profile/${empID}`]);
+    this.router.navigate([`employee-profile/${empID}`]);
     // this.empService.getEmp(empID).subscribe(data => this.emp = data);
   }
   deleteEmp(empID: number) {
