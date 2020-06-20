@@ -4,11 +4,11 @@ import { employee } from '../employee';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-table-list',
-  templateUrl: './table-list.component.html',
-  styleUrls: ['./table-list.component.css']
+  selector: 'app-employee-list',
+  templateUrl: './employee-list.component.html',
+  styleUrls: ['./employee-list.component.css']
 })
-export class TableListComponent implements OnInit {
+export class EmployeeListComponent implements OnInit {
   employees = [];
   emp: employee;
   constructor( private empService: EmployeeService,  private router : Router) { }
@@ -30,12 +30,13 @@ export class TableListComponent implements OnInit {
     // this.empService.getEmp(empID).subscribe(data => this.emp = data);
   }
 
+// **** Update employee *******/
   Update(empID: number){
-    //console.log('detail');
-   // this.router.navigate([`user-profile/${empID}`]);
     this.router.navigate([`employee-profile/${empID}`]);
-    // this.empService.getEmp(empID).subscribe(data => this.emp = data);
+    // employee profile == user frofile
   }
+// **** *************** *******/
+
   deleteEmp(empID: number) {
 
     if (confirm("do you want to delete?")) {

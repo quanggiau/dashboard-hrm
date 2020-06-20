@@ -8,7 +8,8 @@ import { from, Observable } from 'rxjs';
 })
 export class LoginService {
   /* Url create user */
-  private empUrl_check_login = 'http://192.168.4.202:8080/login';
+  //private empUrl_check_login = 'http://192.168.4.202:8080/login';
+  private empUrl_check_login = 'http://localhost:8080/login';
 
   constructor(private http: HttpClient) { }
    // sent user+password from client to server TO CHECK

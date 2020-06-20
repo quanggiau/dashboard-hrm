@@ -4,17 +4,23 @@ import {EmployeeService} from '../employee.service';
 import { from } from 'rxjs';
 import { Router } from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+
 @Component({
   selector: 'app-create-employee',
   templateUrl: './create-employee.component.html',
   styleUrls: ['./create-employee.component.css']
 })
 export class CreateEmployeeComponent implements OnInit {
-  emp: employee = new employee();
   // Set selection for gender employee
- // myControl = new FormControl();
- // options: string[] = ['Male', 'FeMale', 'Other'];
-   // end Set selection for gender employee
+  myControl = new FormControl();
+  //myControl_De = new FormControl();
+  option_genders: string[] = ['Male', 'FeMale', 'Other'];
+  option_departments: string[] = ['GA', 'DEV-EMS', 'DEV-BAS', 'BPO','DTP','Other'];
+  // end Set selection for gender employee
+
+
+  emp: employee = new employee();
+
 
   constructor(private empService: EmployeeService,  private router: Router) { }
 
@@ -28,7 +34,7 @@ export class CreateEmployeeComponent implements OnInit {
     {
       //console.log('this.emp',this.emp);
       this.empService.createEmp(this.emp).subscribe(data => {
-        this.router.navigate(['/table-list'])
+        this.router.navigate(['/employee-list'])
       });
       
     }

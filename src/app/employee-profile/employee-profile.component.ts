@@ -3,11 +3,11 @@ import { employee } from '../employee';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-employee-profile',
+  templateUrl: './employee-profile.component.html',
+  styleUrls: ['./employee-profile.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class EmployeeProfileComponent implements OnInit {
   id: number;
   emp: employee;
 
@@ -18,7 +18,8 @@ export class UserProfileComponent implements OnInit {
     this.id = this.route.snapshot.params['empId'];
     console.log(this.id);
     this.employeeService.getEmp(this.id).subscribe(
-      data => { this.emp = data; }
+      data => { this.emp = data;
+                console.log('update', this.emp) }
     );
   }
   Update(){
@@ -26,6 +27,6 @@ export class UserProfileComponent implements OnInit {
       err => console.log(err)
     );
     //this.employeeService.getEmps().subscribe();
-    this.router.navigate(['table-list'])
+    this.router.navigate(['employee-list'])
   }
 }
