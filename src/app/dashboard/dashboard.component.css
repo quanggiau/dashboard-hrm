@@ -1,3 +1,7 @@
 .card-category{
     font-weight: bold !important;
 }
+.card-icon{
+    padding: 0 !important;
+
+}

@@ -23,7 +23,7 @@
                         <div class="stats">
                             <!-- warning's icon -->
                             <i class="material-icons text-danger">warning</i>
-                            <a href="javascript:void(0)">Get More Information...</a>
+                            <a routerLink="/project_manage">Get More Information...</a>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                     <div class="card-header card-header-tabs card-header-info">
                         <div class="nav-tabs-navigation">
                             <div class="nav-tabs-wrapper">
-                                <span class="nav-tabs-title">News && Notification</span>
+                                <span class="">News && Notification</span>
                             </div>
                         </div>
                     </div>
@@ -137,17 +137,17 @@
                     <div class="card-header card-header-tabs card-header-info">
                         <div class="nav-tabs-navigation">
                             <div class="nav-tabs-wrapper">
-                                <span class="nav-tabs-title">Today Vacation</span>
+                                <span class="">Today Vacation</span>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="tab-content">
                             <div class="tab-pane active" id="profile">
-                                <table class="table">
+                                <table class="table table-hover">
                                     <tbody>
                                         <!-- check employee vacations -->
-                                        <tr *ngFor="let employee_vacation of employee_vacations; let i = index" >
+                                        <tr *ngFor="let employee_vacation of employee_vacations; let i = index">
                                             <td>
                                                 <!-- check box -->
                                                 <div class="form-check">
@@ -161,9 +161,8 @@
                                                 </div>
                                             </td>
                                             <!-- end check box -->
-
                                             <!-- name employee vacations -->
-                                            <td >{{employee_vacations[1]}}</td>
+                                            <td>{{employee_vacations[1]}}</td>
                                             <!-- end name employee vacations -->
                                             <td>Full day</td>
                                             <!-- icon fix and remove -->
@@ -179,7 +178,7 @@
                                                     <i class="material-icons">close</i>
                                                 </button>
                                             </td>
-                                             <!-- icon fix and remove -->
+                                            <!-- icon fix and remove -->
                                         </tr>
                                         <!-- end check employee vacations -->
                                         <!-- *********************************** -->
@@ -197,19 +196,21 @@
             <div class="col-lg-4 col-md-12">
                 <div class="card">
                     <!-- title process -->
-                    <div class="card-header card-header-tabs card-header-info ">
-                        <h4 class="card-title"> Process</h4>
-                        <p class="card-category">Update last date | {{date}}</p>
+                    <div class="card-header card-header-tabs card-header-info">
+                        <div class="nav-tabs-navigation">
+                            <div class="nav-tabs-wrapper">
+                                <span class="">Process</span>
+                            </div>
+                        </div>
                     </div>
                     <!-- end title process -->
-
                     <div class="card-body table-responsive">
-                        <table class="table table-hover">
+                        <table class="table">
                             <tbody>
                                 <tr><a href="" class="text-primary">Working's hour Rule</a></tr>
-                                <tr><a href=""class="text-primary">Company's Rule</a></tr>
-                                <tr><a href=""class="text-primary">Company's Regulations</a></tr>
-                                <tr><a href=""class="text-primary">Other</a></tr>
+                                <tr><a href="" class="text-primary">Company's Rule</a></tr>
+                                <tr><a href="" class="text-primary">Company's Regulations</a></tr>
+                                <tr><a href="" class="text-primary">Other</a></tr>
                             </tbody>
                         </table>
                     </div>
@@ -277,8 +278,5 @@
 
         <!-- ******************************************************************** -->
         <!-- *********************END DASHBOARD********************************* -->
-
-
-    
     </div>
 </div>
