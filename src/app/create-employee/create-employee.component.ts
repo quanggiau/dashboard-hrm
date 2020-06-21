@@ -13,9 +13,11 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 export class CreateEmployeeComponent implements OnInit {
   // Set selection for gender employee
   myControl = new FormControl();
-  //myControl_De = new FormControl();
+  myControl_Department = new FormControl();
+  myControl_Projects = new FormControl();
   option_genders: string[] = ['Male', 'FeMale', 'Other'];
   option_departments: string[] = ['GA', 'DEV-EMS', 'DEV-BAS', 'BPO','DTP','Other'];
+  option_projects: string[] = ['Other', 'OJT', 'Offshore', 'OJT-Training'];
   // end Set selection for gender employee
 
 
@@ -25,8 +27,9 @@ export class CreateEmployeeComponent implements OnInit {
   constructor(private empService: EmployeeService,  private router: Router) { }
 
   ngOnInit(): void {
-    this.emp.empGender = 'Male';
-    this.emp.empDepartment = 'GA';
+    this.emp.empGender = this.option_genders [0]; // Male
+    this.emp.empDepartment = this.option_departments[0]; // GA
+    this.emp.empProjects = this.option_projects[0]
   }
   Create(){
     //console.log('this.emp',this.emp.empId);

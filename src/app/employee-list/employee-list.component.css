@@ -23,6 +23,10 @@
     background-color: rgb(49, 49, 218) !important; 
 
 }
+.custom_export_employee {
+    background-color: rgb(50, 224, 44) !important; 
+    margin-left: 5px !important;
+}
 /* custom main-content table list */
 .main-content{
     margin-top: 0px;

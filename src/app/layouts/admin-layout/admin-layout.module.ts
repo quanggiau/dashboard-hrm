@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { EmployeeListComponent } from '../../employee-list/employee-list.component';
-import { TypographyComponent } from '../../typography/typography.component';
+import { Project_manageComponent } from '../../project-manage/project-manage.component';
 import { VacationsComponent } from '../../vacations/vacations.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
@@ -19,6 +19,7 @@ import { MatSelectModule} from '@angular/material/select';
 import { CreateEmployeeComponent } from 'app/create-employee/create-employee.component';
 import { EmployeeProfileComponent } from 'app/employee-profile/employee-profile.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table'  
 
 @NgModule({
   imports: [
@@ -32,13 +33,15 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatTableModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'})
   ],
   declarations: [
     DashboardComponent,
     EmployeeProfileComponent,
     EmployeeListComponent,
-    TypographyComponent,
+    Project_manageComponent,
     VacationsComponent,
     MapsComponent,
     NotificationsComponent,

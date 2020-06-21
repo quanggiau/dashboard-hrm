@@ -1,80 +1,137 @@
 <div class="main-content">
   <div class="container-fluid">
-      <div class="row" style="margin-top: 20px;">
-            <button mat-raised-button class="btn btn-danger custom_add_employee" (click)="New_Employee()">New Employee </button>
-      </div>
-      <div class="row">
-          <div class="col-md-12">
-              <div class="card card-plain">
-                  <div class="card-header card-header-info ">
-                      <h4 class="card-title mt-0"> Table List Employee</h4>
-                      <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
-                  </div>
-                  <div class="card-body">
-                      <div class="table-responsive">
-                          <table [dataSource]="dataSource" class="table table-hover" >
-                              <thead class="text-warning">
-                                <th>
-                                    No.
-                                </th>
-                                <th>
-                                    FirstName
-                                </th>
-                                <th>
-                                    LastName
-                              </th>
-                                  <th>
-                                    ID
-                                  </th>
-                                  <th>
-                                    Gender
-                                 </th>
-                                  <th>
-                                    Department
-                                  </th>
-                                  <th>
-                                    Email
-                                  </th>
-                                   <th>
-                                    Action
-                                  </th>
-                              </thead>
-                              <tbody>
-                                  <tr *ngFor="let employee of employees; let i = index">
-                                    <td>
-                                    {{i + 1}}.
-                                    </td>
-                                    <td>
-                                    {{employee.empFirstName}}
-                                    </td>
-                                    <td>
-                                    {{employee.empLastName}}
-                                    </td>
-                                    <td>
-                                    {{employee.empId}}
-                                    </td>
-                                    <td>
-                                    {{employee.empGender}}
-                                    </td>
-                                    <td>
-                                    {{employee.empDepartment}}
-                                    </td>
-                                    <td>
-                                    {{employee.empEmail}}
-                                    </td>
-                                    <td>
-                                        <!-- Update Button -->
-                                        <span class="material-icons" id="icon_2" (click)="Update(employee.empId)"> edit </span>
-                                        <!-- Delete Button -->
-                                        <span class="material-icons" id="icon_3" (click)="deleteEmp(employee.empId)"> delete</span>
-                                    </td>
-                                  </tr>
-                              </tbody>  
-                         </table>
-                      </div>
-                  </div>
-              </div>
+    <div class="row" style="margin-top: 20px;">
+      <!-- <button mat-raised-button class="btn btn-danger custom_add_employee" (click)="New_Employee()">New Employee</button>
+      <button mat-raised-button class="btn btn-danger custom_delete_employee" >Delete</button>
+      <button mat-raised-button class="btn btn-danger custom_export_employee" >Export</button> -->
+      <button mat-raised-button type="button" matTooltip="Create Employee" [matTooltipPosition]="'above'"
+        class="btn  btn-sm btn-just-icon btn-info custom_add_employee"
+        (click)="New_Employee()">
+        <i class="material-icons">add</i>
+      </button>
+      <button mat-raised-button type="button" matTooltip="Delete Employee" [matTooltipPosition]="'above'"
+        class="btn  btn-sm btn-just-icon btn-danger">
+        <i class="material-icons">delete</i>
+      </button>
+      <button mat-raised-button type="button" matTooltip="Export File" [matTooltipPosition]="'above'"
+        class="btn  btn-sm btn-just-icon btn-primary">
+        <i class="material-icons">import_export</i>
+      </button>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-plain">
+          <div class="card-header card-header-info ">
+            <h4 class="card-title mt-0"> Table List Employee</h4>
+            <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
           </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table [dataSource]="dataSource" class="table table-hover">
+                <thead style=" font-weight: bolder;">
+                  <th>
+                    <!-- none -->
+                  </th>
+                  <th>
+                    No.
+                  </th>
+                  <th>
+                    FirstName
+                  </th>
+                  <th>
+                    LastName
+                  </th>
+                  <th>
+                    ID
+                  </th>
+                  <th>
+                    Gender
+                  </th>
+                  <th>
+                    Department
+                  </th>
+                  <th>
+                    Skype
+                  </th>
+                  <th>
+                    Project
+                  </th>
+                  <th>
+                    Skills
+                  </th>
+                  <th>
+                    Foreign Language
+                  </th>
+                  <th>
+                    Email
+                  </th>
+                  <th>
+                    Action
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let employee of employees; let i = index">
+                    <td class="">
+                      <input type="checkbox" value="">
+                    </td>
+                    <td>
+                      {{i + 1}}.
+                    </td>
+                    <td>
+                      {{employee.empFirstName}}
+                    </td>
+                    <td>
+                      {{employee.empLastName}}
+                    </td>
+                    <td>
+                      {{employee.empId}}
+                    </td>
+                    <td>
+                      {{employee.empGender}}
+                    </td>
+                    <td>
+                      {{employee.empDepartment}}
+                    </td>
+                    <td>
+                      {{employee.empSkype}}
+                    </td>
+                    <td>
+                      {{employee.empProjects}}
+                    </td>
+                    <td>
+                      {{employee.empSkills}}
+                    </td>
+                    <td>
+                      {{employee.empLanguage}}
+                    </td>
+                    <td>
+                      {{employee.empEmail}}
+                    </td>
+                    <!-- <td> -->
+                    <!-- Update Button -->
+                    <!-- <span class="material-icons" id="icon_2" (click)="Update(employee.empId)"> edit </span> -->
+
+                    <!-- Delete Button -->
+                    <!-- <span class="material-icons" id="icon_3" (click)="deleteEmp(employee.empId)"> delete</span> -->
+                    <!-- </td> -->
+                    <td class="td-actions text-right">
+                      <button mat-raised-button type="button" matTooltip="Edit Employee" [matTooltipPosition]="'above'"
+                        class="btn btn-primary btn-link btn-sm btn-just-icon" (click)="Update(employee.empId)">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button mat-raised-button type="button" matTooltip="Remove Employee"
+                        [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon"
+                        (click)="deleteEmp(employee.empId)">
+                        <i class="material-icons">close</i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
 </div>

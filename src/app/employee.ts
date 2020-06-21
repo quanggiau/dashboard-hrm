@@ -1,7 +1,5 @@
 export class employee {
-    Id: number;
     empId: number;
-    //emp_id: number;
     empFirstName: string;
     empLastName: string;
     empGender: string;
@@ -11,4 +9,8 @@ export class employee {
     empEmail: string;
     empAddress: string;
     empStartDay: string;
+    empSkype: string;
+    empProjects: string;
+    empSkills: string;
+    empLanguage: string;
 }

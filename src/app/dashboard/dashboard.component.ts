@@ -10,6 +10,8 @@ import { EmployeeService } from 'app/employee.service';
 export class DashboardComponent implements OnInit {
   sum_employee: any = 0;
   sum_projects: any = 10;
+  employee_vacations: String[] = ["Nguyen Van A", "Đỗ Hùng Dũng", "Hoàng Ngọc Chí Khanh"];
+  employee_vacations_type: String[] = ["Fullday", "AM", "PM"];
 
   constructor(private empService:EmployeeService ) { }
 

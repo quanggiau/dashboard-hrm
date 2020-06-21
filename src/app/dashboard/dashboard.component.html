@@ -147,7 +147,7 @@
                                 <table class="table">
                                     <tbody>
                                         <!-- check employee vacations -->
-                                        <tr>
+                                        <tr *ngFor="let employee_vacation of employee_vacations; let i = index" >
                                             <td>
                                                 <!-- check box -->
                                                 <div class="form-check">
@@ -163,7 +163,7 @@
                                             <!-- end check box -->
 
                                             <!-- name employee vacations -->
-                                            <td>Nguyen Van A</td>
+                                            <td >{{employee_vacations[1]}}</td>
                                             <!-- end name employee vacations -->
                                             <td>Full day</td>
                                             <!-- icon fix and remove -->
@@ -197,7 +197,7 @@
             <div class="col-lg-4 col-md-12">
                 <div class="card">
                     <!-- title process -->
-                    <div class="card-header card-header-primary bg-info">
+                    <div class="card-header card-header-tabs card-header-info ">
                         <h4 class="card-title"> Process</h4>
                         <p class="card-category">Update last date | {{date}}</p>
                     </div>
