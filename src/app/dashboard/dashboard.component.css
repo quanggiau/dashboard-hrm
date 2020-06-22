@@ -3,5 +3,10 @@
 }
 .card-icon{
     padding: 0 !important;
-
+}
+li{
+    list-style: none;
+}
+a{
+    color: blue;
 }

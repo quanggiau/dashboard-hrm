@@ -3,7 +3,7 @@ import {employee} from '../employee';
 import {EmployeeService} from '../employee.service';
 import { from } from 'rxjs';
 import { Router } from '@angular/router';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators, FormBuilder, FormArray} from '@angular/forms';
 
 @Component({
   selector: 'app-create-employee',
@@ -11,6 +11,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./create-employee.component.css']
 })
 export class CreateEmployeeComponent implements OnInit {
+  // checkauto:boolean=false;
+  // save:string;
   // Set selection for gender employee
   myControl = new FormControl();
   myControl_Department = new FormControl();
@@ -19,12 +21,12 @@ export class CreateEmployeeComponent implements OnInit {
   option_departments: string[] = ['GA', 'DEV-EMS', 'DEV-BAS', 'BPO','DTP','Other'];
   option_projects: string[] = ['Other', 'OJT', 'Offshore', 'OJT-Training'];
   // end Set selection for gender employee
+  skills = new FormControl();
 
-
+  skillList: string[] = ['Java', 'PHP', 'Ruby', 'Python', 'ReacJS', 'Other'];
   emp: employee = new employee();
-
-
-  constructor(private empService: EmployeeService,  private router: Router) { }
+  constructor(private empService: EmployeeService,  private router: Router) { 
+}
 
   ngOnInit(): void {
     this.emp.empGender = this.option_genders [0]; // Male
@@ -42,4 +44,18 @@ export class CreateEmployeeComponent implements OnInit {
       
     }
   }
+//   Saveskill(event: Event) {
+//     alert(1);
+//     this.checkauto= (event.target as HTMLInputElement).checked;
+//     if(this.checkauto == true)
+//     {
+      
+//       this.save += (event.target as HTMLInputElement).value+',';
+//     }
+//     else
+//     {
+//       this.save = this.save.replace((event.target as HTMLInputElement).value+',',"");
+//     }
+//     alert(this.save);
+//  }
 }

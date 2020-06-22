@@ -1,6 +1,6 @@
 <div class="main-content">
   <div class="container-fluid">
-    <div class="row" style="margin-top: 20px;">
+    <div class="row" style="margin-top: 20px; margin-left: -15px;">
       <!-- <button mat-raised-button class="btn btn-danger custom_add_employee" (click)="New_Employee()">New Employee</button>
       <button mat-raised-button class="btn btn-danger custom_delete_employee" >Delete</button>
       <button mat-raised-button class="btn btn-danger custom_export_employee" >Export</button> -->
@@ -21,13 +21,13 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card card-plain">
-          <div class="card-header-info ">
+          <div class="card-header-info" style="margin-left:0">
             <span style="font-weight: bolder;"> Employee List </span>
             <!-- <p class="card-category"> Here is a subtitle for this table</p> -->
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table [dataSource]="dataSource" class="table table-hover">
+              <table  class="table table-hover">
                 <thead style=" font-weight: bolder;">
                   <th>
                     <!-- none -->
@@ -60,11 +60,11 @@
                     Skills
                   </th>
                   <th>
-                    Foreign Language
+                    <!-- Foreign Language --> Language
                   </th>
-                  <th>
+                  <!-- <th>
                     Email
-                  </th>
+                  </th> -->
                   <th>
                     Action
                   </th>
@@ -104,9 +104,9 @@
                     <td>
                       {{employee.empLanguage}}
                     </td>
-                    <td>
+                    <!-- <td>
                       {{employee.empEmail}}
-                    </td>
+                    </td> -->
                     <!-- <td> -->
                     <!-- Update Button -->
                     <!-- <span class="material-icons" id="icon_2" (click)="Update(employee.empId)"> edit </span> -->
@@ -117,7 +117,7 @@
                     <td class="td-actions text-right">
                       <button mat-raised-button type="button" matTooltip="Edit Employee" [matTooltipPosition]="'above'"
                         class="btn btn-primary btn-link btn-sm btn-just-icon" (click)="Update(employee.empId)">
-                        <i class="material-icons">edit</i>
+                        <i class="material-icons" style="color: rgb(77, 77, 253);">edit</i>
                       </button>
                       <button mat-raised-button type="button" matTooltip="Remove Employee"
                         [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon"

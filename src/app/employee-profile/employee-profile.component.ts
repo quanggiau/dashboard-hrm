@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { employee } from '../employee';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
+import {FormControl, FormGroup, Validators, FormBuilder, FormArray} from '@angular/forms';
+
 @Component({
   selector: 'app-employee-profile',
   templateUrl: './employee-profile.component.html',
@@ -11,6 +13,15 @@ export class EmployeeProfileComponent implements OnInit {
   id: number;
   emp: employee;
 
+  myControl = new FormControl();
+  myControl_Department = new FormControl();
+  myControl_Projects = new FormControl();
+  option_genders: string[] = ['Male', 'FeMale', 'Other'];
+  option_departments: string[] = ['GA', 'DEV-EMS', 'DEV-BAS', 'BPO','DTP','Other'];
+  option_projects: string[] = ['Other', 'OJT', 'Offshore', 'OJT-Training'];
+  // end Set selection for gender employee
+  skills = new FormControl();
+  
   constructor(private route: ActivatedRoute, private router: Router, private employeeService: EmployeeService) { }
   
   ngOnInit() {

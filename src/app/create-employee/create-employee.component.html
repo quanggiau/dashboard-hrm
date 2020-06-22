@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-header card-header-danger">
+          <div class="card-header card-header-info">
             <h4 class="card-title">Create Employee</h4>
-            <p class="card-category">Complete your profile</p>
+            <!-- <p class="card-category">Complete your profile</p> -->
           </div>
           <!-- ----------------CONTENT PROFILE Create ------------------>
           <!-- Edit profile information  -->
@@ -85,8 +85,7 @@
                 <!-- edit Foreign Languge -->
                 <div class="col-md-3">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Foreign Languge" type="text" 
-                      name="PhoneNumber">
+                    <input matInput placeholder="Foreign Languge" type="text" name="PhoneNumber">
                   </mat-form-field>
                 </div>
               </div>
@@ -135,25 +134,40 @@
                 <!-- edit project -->
                 <div class="col-md-3">
                   <mat-form-field class="example-full-width">
-                    <input type="text" matInput [formControl]="myControl_Projects" [matAutocomplete]="auto_pro" placeholder="project"
-                       [(ngModel)]="emp.empProjects" name="Project">
+                    <input type="text" matInput [formControl]="myControl_Projects" [matAutocomplete]="auto_pro"
+                      placeholder="project" [(ngModel)]="emp.empProjects" name="Project">
                     <mat-autocomplete #auto_pro="matAutocomplete">
-                      <mat-option *ngFor="let option_project of option_projects" [value]="option_project">{{option_project}}
+                      <mat-option *ngFor="let option_project of option_projects" [value]="option_project">
+                        {{option_project}}
                       </mat-option>
                     </mat-autocomplete>
                   </mat-form-field>
                 </div>
                 <!-- edit skills -->
-                <div class="col-md-9">
+                <div class="col-md-6">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Skills" type="text"  name="Skills">
+                    <!-- <input matInput type="text" placeholder="Skills" [(ngModel)]="emp.empSkills" name="Skills"> -->
+                    <mat-label>Skills</mat-label>
+                    <mat-select [formControl]="skills" multiple> 
+                      <mat-option *ngFor="let skills of skillList" [value]="skills">{{skills}}</mat-option>
+                    </mat-select>
                   </mat-form-field>
-
                 </div>
-                <!-- button UPDATE PROFILE -->
+                <div class="col-md-3">
+                  <!-- demo -->
+                  <mat-form-field class="example-full-width">
+                    <!-- <input matInput type="text" placeholder="Skills" [(ngModel)]="emp.empSkills" name="Skills"> -->
+                    <mat-label>Skills</mat-label>
+                    <mat-select [formControl]="skills" multiple> 
+                      <mat-option *ngFor="let skills of skillList" [value]="skills">{{skills}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <!-- demo -->
               </div>
-              <button mat-raised-button type="submit" class="btn btn-info pull-right" (click)="Create()">Create</button>
-              <div class="clearfix"></div>
+              <!-- button UPDATE PROFILE -->
+              <button mat-raised-button type="submit" class="btn btn-info pull-right btn-sm"
+                (click)="Create()">Create</button>
             </form>
           </div>
         </div>
@@ -169,17 +183,17 @@
           </div>
           <div class="card-body">
             <!-- Role's Profile -->
-            <h6 class="card-category text-gray">BrycenVietNam{{emp.empId}}</h6>
+            <h6 class="card-category text-gray">BrycenVietNam {{emp.empId}}</h6>
             <h6 class="card-category text-gray">{{emp.Department}}</h6>
             <!-- name's profile -->
             <h4 class="card-title">{{emp.empFirstName}} {{emp.empLastName}}</h4>
             <!-- start deecription content profile  -->
             <p class="card-description">
-             <i>update picture here</i> 
+              <i>update picture here</i>
             </p>
             <!-- end content profile  -->
             <!-- follow button -->
-            <a href="" class="btn  btn-round">Update Picture</a>
+            <a href="" class="btn  btn-round btn-sm">Change Picture</a>
           </div>
         </div>
       </div>

@@ -5,87 +5,120 @@
         <div class="card">
           <div class="card-header card-header-info">
             <h4 class="card-title">Edit Profile</h4>
-            <!-- <p class="">Complete your profile</p> -->
+            <!-- <p class="card-category">Complete your profile</p> -->
           </div>
-          <!-- ----------------CONTENT PROFILE UPDATE -- NGFOR* ---------------->
+          <!-- ----------------CONTENT PROFILE Create ------------------>
           <!-- Edit profile information  -->
           <div class="card-body">
             <form>
+              <!-- *****************************ROW NEW ************************************* -->
+              <!-- *****************************ROW NEW ************************************* -->
               <!-- Edit FirstName && LastName -->
               <div class="row">
+                <!-- Edit ID -->
+                <div class="col-md-2">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="ID" type="text" required [(ngModel)]="emp.empId" name="empID">
+                  </mat-form-field>
+                </div>
                 <!-- Edit FirstName -->
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <mat-form-field class="example-full-width">
                     <input matInput placeholder="Fist Name" type="text" required [(ngModel)]="emp.empFirstName"
                       name="firstName">
                   </mat-form-field>
                 </div>
                 <!-- Edit LastName -->
-                <div class="col-md-3">
+                <div class="col-md-2">
                   <mat-form-field class="example-full-width">
                     <input matInput placeholder="Last Name" type="text" required [(ngModel)]="emp.empLastName"
                       name="lastName">
                   </mat-form-field>
                 </div>
-                <!-- Edit ID -->
-                <div class="col-md-3">
+                <!-- edit gender -->
+                <div class="col-md-2">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="ID" type="text" required [(ngModel)]="emp.empId" name="empID">
+                    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto1" placeholder="Gender"
+                      required [(ngModel)]="emp.empGender" name="Gender">
+                    <mat-autocomplete #auto1="matAutocomplete">
+                      <mat-option *ngFor="let option_gender of option_genders" [value]="option_gender">{{option_gender}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                </div>
+                <!-- edit department -->
+                <div class="col-md-2">
+                  <mat-form-field class="example-full-width">
+                    <input type="text" matInput [formControl]="myControl_Department" [matAutocomplete]="auto"
+                      placeholder="Department" required [(ngModel)]="emp.empDepartment" name="Department">
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let option_department of option_departments" [value]="option_department">
+                        {{option_department}}</mat-option>
+                    </mat-autocomplete>
                   </mat-form-field>
                 </div>
               </div>
               <!-- End Edit FirstName && LastName -->
-              <!-- start edit gender, department, email -->
+              <!-- *****************************END ROW NEW ************************************* -->
+              <!-- *****************************END ROW NEW ************************************* -->
+              <!-- start edit  email -->
               <div class="row">
-                <!-- edit gender -->
-                <div class="col-md-3">
-                  <!-- <mat-form-field class="example-full-width"> -->
-                  <!-- <input matInput placeholder="Gender"> -->
-                  <select class="form-control" id="gender" required [(ngModel)]="emp.empGender" name="Gender">
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
-                  </select>
-                  <!-- </mat-form-field>  -->
-                </div>
-                <!-- edit department -->
-                <div class="col-md-4">
-                  <!-- <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Department" selection>
-                                  </mat-form-field> -->
-                  <select class="form-control" id="department" required [(ngModel)]="emp.empDepartment"
-                    name="Department">
-                    <option>GA</option>
-                    <option>DEV-EMS</option>
-                    <option>DEV-BAS</option>
-                    <option>BPO</option>
-                    <option>BAO</option>
-                    <option>BJL</option>
-                    <option>DTP</option>
-                    <option>Other</option>
-                  </select>
-                </div>
                 <!-- edit email -->
-                <div class="col-md-5">
+                <div class="col-md-3">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Email address" type="email" required [(ngModel)]="emp.empEmail"
-                      name="email">
+                    <input matInput placeholder="Email address" type="email" [(ngModel)]="emp.empEmail" name="email">
+                  </mat-form-field>
+                </div>
+                <!-- edit skype -->
+                <div class="col-md-3">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Skype" type="text" [(ngModel)]="emp.Skype" name="Skype">
+                  </mat-form-field>
+                </div>
+                <!-- edit phone number -->
+                <div class="col-md-3">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Phone Number" type="text" [(ngModel)]="emp.PhoneNumber"
+                      name="PhoneNumber">
+                  </mat-form-field>
+                </div>
+                <!-- edit Foreign Languge -->
+                <div class="col-md-3">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Foreign Languge" type="text" name="PhoneNumber">
                   </mat-form-field>
                 </div>
               </div>
               <!-- end edit gender, department, email -->
               <!-- start edit local address -->
+              <!-- end edit local address -->
+              <!-- start edit enternal address -->
+              <!-- *****************************END ROW NEW ************************************* -->
+              <!-- *****************************END ROW NEW ************************************* -->
               <div class="row">
-                <div class="col-md-6">
+                <!-- edit CITY -->
+                <div class="col-md-2">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Adress (village)" type="text">
+                    <input matInput placeholder="Province/City" type="text">
+                  </mat-form-field>
+                </div>
+                <!-- edit COUNTRY -->
+                <div class="col-md-2">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="	District/Town" type="text">
+                  </mat-form-field>
+                </div>
+                <!-- edit Commune/xa -->
+                <div class="col-md-2">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Commune/Ward" type="text">
                   </mat-form-field>
                 </div>
                 <!-- edit birthday -->
                 <div class="col-md-3">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="BirthDay" type="date" required [(ngModel)]="emp.empBirthDay"
-                      name="birthday" min="1950-01-01" max="2050-12-31">
+                    <input matInput placeholder="BirthDay" type="date" [(ngModel)]="emp.empBirthDay" name="birthday"
+                      min="1950-01-01" max="2050-12-31">
                   </mat-form-field>
                 </div>
                 <!-- edit startday -->
@@ -95,37 +128,33 @@
                   </mat-form-field>
                 </div>
               </div>
-              <!-- end edit local address -->
-              <!-- start edit enternal address -->
-              <div class="row">
-                <!-- edit CITY -->
-                <div class="col-md-4">
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="City" type="text">
-                  </mat-form-field>
-                </div>
-                <!-- edit COUNTRY -->
-                <div class="col-md-4">
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Country" type="text">
-                  </mat-form-field>
-                </div>
-                <!-- edit Commune/xa -->
-                <div class="col-md-4">
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Commune" type="text">
-                  </mat-form-field>
-                </div>
-              </div>
               <!-- END edit enternal address -->
               <!-- start edit about me -->
               <div class="row">
-                <div class="col-md-12">
-                  <label>About Me</label>
+                <!-- edit project -->
+                <div class="col-md-3">
                   <mat-form-field class="example-full-width">
-                    <textarea matInput
-                      placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
+                    <input type="text" matInput [formControl]="myControl_Projects" [matAutocomplete]="auto_pro"
+                      placeholder="project" [(ngModel)]="emp.empProjects" name="Project">
+                    <mat-autocomplete #auto_pro="matAutocomplete">
+                      <mat-option *ngFor="let option_project of option_projects" [value]="option_project">
+                        {{option_project}}
+                      </mat-option>
+                    </mat-autocomplete>
                   </mat-form-field>
+                </div>
+                <!-- edit skills -->
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <!-- <input matInput type="text" placeholder="Skills" [(ngModel)]="emp.empSkills" name="Skills"> -->
+                    <mat-label>Skills</mat-label>
+                    <mat-select [formControl]="skills" multiple>
+                      <mat-option *ngFor="let skills of skillList" [value]="skills">{{skills}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                 
                 </div>
                 <!-- button UPDATE PROFILE -->
               </div>
@@ -148,12 +177,12 @@
             <!-- Role's Profile -->
             <h6 class="card-category text-gray">{{emp.empId}}</h6>
             <!-- name's profile -->
-            <h4 class="card-title">{{emp.empFirstName}}{{emp.empLastName}}</h4>
+            <h4 class="card-title">{{emp.empFirstName}} {{emp.empLastName}}</h4>
             <!-- start deecription content profile  -->
             <p class="card-description"></p>
             <!-- end content profile  -->
             <!-- follow button -->
-            <a href="" class="btn btn-primary btn-round">Follow</a>
+            <a href="" class="btn btn-round btn-sm">Change Picture</a>
           </div>
         </div>
       </div>
