@@ -16,11 +16,16 @@ export class EmployeeProfileComponent implements OnInit {
   myControl = new FormControl();
   myControl_Department = new FormControl();
   myControl_Projects = new FormControl();
+  myControl_Language = new FormControl();
+  skills = new FormControl();
   option_genders: string[] = ['Male', 'FeMale', 'Other'];
   option_departments: string[] = ['GA', 'DEV-EMS', 'DEV-BAS', 'BPO','DTP','Other'];
   option_projects: string[] = ['Other', 'OJT', 'Offshore', 'OJT-Training'];
+  option_languages: string[] = ['None', 'English','JPN N5','JPN N4','JPN N3','JPN N2','JPN N1','Other'];
+  skillList: string[] = ['Java', 'PHP', 'Ruby', 'Python', 'ReacJS', 'Other'];
   // end Set selection for gender employee
-  skills = new FormControl();
+  
+  
   
   constructor(private route: ActivatedRoute, private router: Router, private employeeService: EmployeeService) { }
   

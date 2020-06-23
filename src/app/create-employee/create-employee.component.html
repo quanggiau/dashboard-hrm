@@ -58,7 +58,7 @@
                   </mat-form-field>
                 </div>
               </div>
-              <!-- End Edit FirstName && LastName -->
+              
               <!-- *****************************END ROW NEW ************************************* -->
               <!-- *****************************END ROW NEW ************************************* -->
               <!-- start edit  email -->
@@ -72,20 +72,25 @@
                 <!-- edit skype -->
                 <div class="col-md-3">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Skype" type="text" [(ngModel)]="emp.Skype" name="Skype">
+                    <input matInput placeholder="Skype" type="text" [(ngModel)]="emp.empSkype" name="Skype">
                   </mat-form-field>
                 </div>
                 <!-- edit phone number -->
                 <div class="col-md-3">
                   <mat-form-field class="example-full-width">
                     <input matInput placeholder="Phone Number" type="text" [(ngModel)]="emp.PhoneNumber"
-                      name="PhoneNumber">
+                      name="PhoneNumber" maxlength="10">
                   </mat-form-field>
                 </div>
                 <!-- edit Foreign Languge -->
                 <div class="col-md-3">
                   <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Foreign Languge" type="text" name="PhoneNumber">
+                    <input type="text" matInput [formControl]="myControl_Language" [matAutocomplete]="auto_Lang"
+                      placeholder="Foreign Languge"  [(ngModel)]="emp.empLanguage" name="Language">
+                    <mat-autocomplete #auto_Lang="matAutocomplete">
+                      <mat-option *ngFor="let option_language of option_languages" [value]="option_language">
+                        {{option_language}}</mat-option>
+                    </mat-autocomplete>
                   </mat-form-field>
                 </div>
               </div>
