@@ -8,24 +8,24 @@ import {employee} from './employee'
 })
 export class EmployeeService {
   /* Url get one Employee by emp_id */
-  //private empUrl_get_one_emp = 'http://192.168.4.202:8080/get_one_emp';
-  private empUrl_get_one_emp = 'http://localhost:8080/get_one_emp';
+  private empUrl_get_one_emp = 'http://192.168.4.202:8080/get_one_emp';
+  //private empUrl_get_one_emp = 'http://localhost:8080/get_one_emp';
 
   /* Url Update Employee */
-  //private empUrl_update = 'http://192.168.4.202:8080/update';
-  private empUrl_update = 'http://localhost:8080/update';
+  private empUrl_update = 'http://192.168.4.202:8080/update';
+ // private empUrl_update = 'http://localhost:8080/update';
 
   /* Url get all Employee */
-  //private empUrl_getAll = 'http://192.168.4.202:8080/get_all_emps';
-  private empUrl_getAll = 'http://localhost:8080/get_all_emps';
+  private empUrl_getAll = 'http://192.168.4.202:8080/get_all_emps';
+  //private empUrl_getAll = 'http://localhost:8080/get_all_emps';
 
    /* Url delete Employee by emp_id */
-  //private empUrl_delete = 'http://192.168.4.202:8080/delete';
-  private empUrl_delete = 'http://localhost:8080/delete';
+  private empUrl_delete = 'http://192.168.4.202:8080/delete';
+  //private empUrl_delete = 'http://localhost:8080/delete';
    
    /* Url create Employee*/
-  //private empUrl_create_emp = 'http://192.168.4.202:8080/createEmp';
-  private empUrl_create_emp = 'http://localhost:8080/createEmp';
+  private empUrl_create_emp = 'http://192.168.4.202:8080/createEmp';
+  //private empUrl_create_emp = 'http://localhost:8080/createEmp';
   
   constructor(private http: HttpClient) { }
 
