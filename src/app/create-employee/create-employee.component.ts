@@ -25,7 +25,8 @@ export class CreateEmployeeComponent implements OnInit {
   option_languages: string[] = ['None', 'English','JPN N5','JPN N4','JPN N3','JPN N2','JPN N1','Other'];
   // end Set selection for gender employee
   
-  skillList: string[] = ['Java', 'PHP', 'Ruby', 'Python', 'ReacJS', 'Other'];
+  skillLists: string[] = ['Java', 'PHP', 'Ruby', 'Python', 'ReacJS', 'Other'];
+
   emp: employee = new employee();
   constructor(private empService: EmployeeService,  private router: Router) { 
 }
@@ -37,7 +38,9 @@ export class CreateEmployeeComponent implements OnInit {
     this.emp.empLanguage = this.option_languages[0];
   }
   Create(){
-    //console.log('this.emp',this.emp.empId);
+    
+    this.emp.empSkills = this.skills.value.join(', ');
+    console.log(this.emp.empSkills);
     if(this.emp.empId!=undefined) 
     {
 
@@ -48,18 +51,4 @@ export class CreateEmployeeComponent implements OnInit {
       
     }
   }
-//   Saveskill(event: Event) {
-//     alert(1);
-//     this.checkauto= (event.target as HTMLInputElement).checked;
-//     if(this.checkauto == true)
-//     {
-      
-//       this.save += (event.target as HTMLInputElement).value+',';
-//     }
-//     else
-//     {
-//       this.save = this.save.replace((event.target as HTMLInputElement).value+',',"");
-//     }
-//     alert(this.save);
-//  }
 }

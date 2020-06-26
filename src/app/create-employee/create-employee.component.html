@@ -154,7 +154,7 @@
                     <!-- <input matInput type="text" placeholder="Skills" [(ngModel)]="emp.empSkills" name="Skills"> -->
                     <mat-label>Skills</mat-label>
                     <mat-select [formControl]="skills" multiple> 
-                      <mat-option *ngFor="let skills of skillList" [value]="skills">{{skills}}</mat-option>
+                      <mat-option *ngFor="let skills of skillLists" [value]="skills">{{skills}}</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </div>
@@ -168,7 +168,7 @@
                     </mat-select>
                   </mat-form-field> -->
                 </div>
-                <!-- demo -->
+                <!-- demo --> 
               </div>
               <!-- button UPDATE PROFILE -->
               <button mat-raised-button type="submit" class="btn btn-info pull-right btn-sm"

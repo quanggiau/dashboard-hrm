@@ -53,4 +53,9 @@ export class EmployeeService {
   deleteEmp (empID: number): Observable<any>{
     return this.http.delete(`${this.empUrl_delete}/${empID}`);
   }
+
+  /** Delete muti Employees by checkbox */
+  delete_muti_Emp_checkbox (save_temp): Observable<any>{
+    return this.http.delete(`/delete_muti_emp`);
+  }
 }

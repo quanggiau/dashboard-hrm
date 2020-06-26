@@ -10,7 +10,8 @@
         <i class="material-icons">add</i>
       </button>
       <button mat-raised-button type="button" matTooltip="Delete Employee" [matTooltipPosition]="'above'"
-        class="btn  btn-sm btn-just-icon btn-danger">
+        class="btn  btn-sm btn-just-icon btn-danger"
+        (click)="delete_muti_Emp_checkbox()">
         <i class="material-icons">delete</i>
       </button>
       <button mat-raised-button type="button" matTooltip="Export File" [matTooltipPosition]="'above'"
@@ -30,7 +31,7 @@
               <table  class="table table-hover">
                 <thead style=" font-weight: bolder;">
                   <th>
-                    <!-- none -->
+                   <input type="checkbox" value="">
                   </th>
                   <th>
                     No.
@@ -72,7 +73,7 @@
                 <tbody>
                   <tr *ngFor="let employee of employees; let i = index">
                     <td class="">
-                      <input type="checkbox" value="">
+                      <input type="checkbox" value="{{employee.empId}}" (click)=SaveIDEmp($event) >
                     </td>
                     <td>
                       {{i + 1}}.
