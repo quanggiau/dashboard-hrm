@@ -55,14 +55,11 @@ export class EmployeeListComponent implements OnInit {
   }
 
   delete_muti_Emp_checkbox(){
-    this.empService.delete_muti_Emp_checkbox(this.save).subscribe(
-      data => {
-        //console.log('dsdsd', data);
-        //alert(`Delete Successful! ${data}`);
-        this.getEmps();
-      }, error => console.log(error)
-    );
-   
+    for (let index = 0; index < this.save_temp.length; index++) {
+      const empID = this.save_temp[index];
+      this.empService.deleteEmp(empID).subscribe()
+    } 
+    this.getEmps();  
   }
   checkauto:boolean = false;
   save:string;
@@ -71,31 +68,31 @@ export class EmployeeListComponent implements OnInit {
     this.checkauto= (event.target as HTMLInputElement).checked;
     if(this.checkauto == true)
     {  
-      if(this.save && this.save.length > 0) {
-        this.save +=',';
-      }
-      this.save += (event.target as HTMLInputElement).value; 
-      
+     // if(this.save && this.save.length > 0) {
+       // this.save +=',';
+      //}
+     // this.save += (event.target as HTMLInputElement).value; 
+     this.save += (event.target as HTMLInputElement).value+',';
     }
     else
     {
-      if(this.save.length > 1) {
-        this.save = this.save.replace("," + (event.target as HTMLInputElement).value,"");
+     // if(this.save.length > 1) {
+       // this.save = this.save.replace("," + (event.target as HTMLInputElement).value,"");
+       this.save = this.save.replace((event.target as HTMLInputElement).value+',',"");
+     // }
+     // else{
+       // console.log("sadsad");
         
-      }
-      else{
-        console.log("sadsad");
-        
-        this.save = this.save.replace((event.target as HTMLInputElement).value,"");
-      }
+      //  this.save = this.save.replace((event.target as HTMLInputElement).value,"");
+   //   }
       
       
     }
     //alert(this.save.replace("undefined",""));
    this.save = this.save.replace("undefined","");
-    console.log('checkbox_value',this.save);
-    //this.save_temp = this.save.split(',');
+   // console.log('checkbox_value',this.save);
+    this.save_temp = this.save.split(',');
 
-    //console.log('checkbox_value',this.save_temp);
+    console.log('checkbox_value',this.save_temp);
  }
 }
