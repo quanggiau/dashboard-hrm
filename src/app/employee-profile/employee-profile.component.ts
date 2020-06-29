@@ -45,12 +45,15 @@ export class EmployeeProfileComponent implements OnInit {
     
   }
   Update(){
-    this.emp.empSkills = this.skills.value.join(', ');
-    console.log('skill after update', this.emp.empSkills );
+    if(this.skills.value != null) {
+      this.emp.empSkills = this.skills.value.join(', ');
+   // console.log('skill after update', this.emp.empSkills );
     this.employeeService.updateEmp(this.id, this.emp).subscribe(
       err => console.log(err)
     );
     //this.employeeService.getEmps().subscribe();
+    }
+    
     this.router.navigate(['employee-list'])
   }
 }

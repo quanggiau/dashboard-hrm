@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class EmployeeListComponent implements OnInit {
   employees = [];
   emp: employee;
+  check = true;
   constructor( private empService: EmployeeService,  private router : Router) { }
   ngOnInit() {
     this.getEmps();
@@ -54,13 +55,13 @@ export class EmployeeListComponent implements OnInit {
     this.router.navigate(['create-employee']);
   }
 
-  delete_muti_Emp_checkbox(){
-    for (let index = 0; index < this.save_temp.length; index++) {
-      const empID = this.save_temp[index];
-      this.empService.deleteEmp(empID).subscribe()
-    } 
-    this.getEmps();  
-  }
+  // delete_muti_Emp_checkbox(){
+  //   for (let index = 0; index < this.save_temp.length; index++) {
+  //     const empID = this.save_temp[index];
+  //     this.empService.deleteEmp(empID).subscribe()
+  //   } 
+  //   this.getEmps();  
+  // }
   checkauto:boolean = false;
   save:string;
   save_temp= [];
@@ -68,31 +69,39 @@ export class EmployeeListComponent implements OnInit {
     this.checkauto= (event.target as HTMLInputElement).checked;
     if(this.checkauto == true)
     {  
-     // if(this.save && this.save.length > 0) {
-       // this.save +=',';
-      //}
-     // this.save += (event.target as HTMLInputElement).value; 
-     this.save += (event.target as HTMLInputElement).value+',';
+          this.save += (event.target as HTMLInputElement).value+',';
     }
     else
     {
-     // if(this.save.length > 1) {
-       // this.save = this.save.replace("," + (event.target as HTMLInputElement).value,"");
        this.save = this.save.replace((event.target as HTMLInputElement).value+',',"");
-     // }
-     // else{
-       // console.log("sadsad");
-        
-      //  this.save = this.save.replace((event.target as HTMLInputElement).value,"");
-   //   }
-      
-      
-    }
+         }
     //alert(this.save.replace("undefined",""));
    this.save = this.save.replace("undefined","");
    // console.log('checkbox_value',this.save);
     this.save_temp = this.save.split(',');
 
-    console.log('checkbox_value',this.save_temp);
+   console.log('checkbox_value',this.save_temp);
+
+   console.log("checkk", event.target as HTMLInputElement);
+   
+   // console.log('checkbox_value',this.save);
  }
+
+  delete_muti_Emp_checkbox(){
+    console.log('xx',this.save_temp);
+   this.empService.delete_muti_Emp_checkbox(this.save_temp).subscribe(
+    data => {
+        alert("delete succesfull!");
+      }
+      , 
+      error => {
+        console.log(error)
+        alert("delete failed!");
+      },
+      () => {
+        this.getEmps();
+        this.save = "";
+      }
+   );
+  }
 }

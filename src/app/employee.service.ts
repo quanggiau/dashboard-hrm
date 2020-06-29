@@ -9,23 +9,25 @@ import {employee} from './employee'
 export class EmployeeService {
   /* Url get one Employee by emp_id */
   //private empUrl_get_one_emp = 'http://192.168.4.202:8080/get_one_emp';
-  private empUrl_get_one_emp = 'http://localhost:8080/get_one_emp';
+  private empUrl_get_one_emp = 'http://localhost:8080/get/employees';
 
   /* Url Update Employee */
  // private empUrl_update = 'http://192.168.4.202:8080/update';
-  private empUrl_update = 'http://localhost:8080/update';
+  private empUrl_update = 'http://localhost:8080/update/employee';
 
   /* Url get all Employee */
  // private empUrl_getAll = 'http://192.168.4.202:8080/get_all_emps';
-  private empUrl_getAll = 'http://localhost:8080/get_all_emps';
+  private empUrl_getAll = 'http://localhost:8080/getall/employees';
 
    /* Url delete Employee by emp_id */
   //private empUrl_delete = 'http://192.168.4.202:8080/delete';
-  private empUrl_delete = 'http://localhost:8080/delete';
+  private empUrl_delete = 'http://localhost:8080/delete/employee';
    
    /* Url create Employee*/
   //private empUrl_create_emp = 'http://192.168.4.202:8080/createEmp';
-  private empUrl_create_emp = 'http://localhost:8080/createEmp';
+  private empUrl_create_emp = 'http://localhost:8080/create/employee';
+
+  private empUrl_detetemuti_emp = 'http://localhost:8080/deletemuti/employee';
   
   constructor(private http: HttpClient) { }
 
@@ -41,7 +43,7 @@ export class EmployeeService {
   /* Create an employee */
   createEmp (emp: Object): Observable<Object>{      
    // return this.http.post(`${this.empUrl_create_emp}`,emp);   //post all//
-    return this.http.post(`http://localhost:8080/createEmp`, emp);
+    return this.http.post(`${this.empUrl_create_emp}`, emp);
   }
 
   /*** Update Employees ***/
@@ -55,7 +57,7 @@ export class EmployeeService {
   }
 
   /** Delete muti Employees by checkbox */
-  delete_muti_Emp_checkbox (save_temp): Observable<any>{
-    return this.http.delete(`/delete_muti_emp`);
+  delete_muti_Emp_checkbox (save_temp: any): Observable<any>{
+    return this.http.post(`${this.empUrl_detetemuti_emp}`, save_temp);
   }
 }

@@ -38,8 +38,10 @@ export class CreateEmployeeComponent implements OnInit {
     this.emp.empLanguage = this.option_languages[0];
   }
   Create(){
+    if(this.skills.value != null){
+      this.emp.empSkills = this.skills.value.join(', ');
+    }
     
-    this.emp.empSkills = this.skills.value.join(', ');
     console.log(this.emp.empSkills);
     if(this.emp.empId!=undefined) 
     {
