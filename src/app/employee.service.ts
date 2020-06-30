@@ -28,12 +28,14 @@ export class EmployeeService {
   private empUrl_create_emp = 'http://localhost:8080/create/employee';
 
   private empUrl_detetemuti_emp = 'http://localhost:8080/deletemuti/employee';
+
+  private empUrl_paging = 'http://localhost:8080';
   
   constructor(private http: HttpClient) { }
 
   /*** Get all employee from serve **/
   getEmps(): Observable<employee[]>{
-    return this.http.get<employee[]>(`${this.empUrl_getAll}`)  // get('array')
+    return this.http.get<employee[]>(`${this.empUrl_getAll}`)
   }
 
   /* Get get one Employee by emp_id from server */
@@ -42,7 +44,7 @@ export class EmployeeService {
   }
   /* Create an employee */
   createEmp (emp: Object): Observable<Object>{      
-   // return this.http.post(`${this.empUrl_create_emp}`,emp);   //post all//
+   // return this.http.post(`${this.empUrl_create_emp}`,emp); 
     return this.http.post(`${this.empUrl_create_emp}`, emp);
   }
 
@@ -59,5 +61,11 @@ export class EmployeeService {
   /** Delete muti Employees by checkbox */
   delete_muti_Emp_checkbox (save_temp: any): Observable<any>{
     return this.http.post(`${this.empUrl_detetemuti_emp}`, save_temp);
+  }
+
+  /** Paging */
+  
+  paging(start_number:number, end_number: number): Observable<employee[]>{
+    return this.http.get<employee[]>(`${this.empUrl_paging}/listLimit?start_page=${start_number}&end_page=${end_number}`);
   }
 }

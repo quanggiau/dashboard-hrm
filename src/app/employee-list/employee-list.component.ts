@@ -3,6 +3,7 @@ import { EmployeeService } from '../employee.service';
 import { employee } from '../employee';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
@@ -10,31 +11,43 @@ import { Router } from '@angular/router';
 })
 export class EmployeeListComponent implements OnInit {
   employees = [];
+  employees_1 = [];
   emp: employee;
   check = true;
+  empsLimit:any = [];
+  start_number: number = 0;
+  pageSize: number = 10;
+  currentPage: number = 0;
+  i: number = 0;
+
   constructor(private empService: EmployeeService, private router: Router) { }
   ngOnInit() {
     this.getEmps();
+    this.EmpLimit();
+    
   }
 
   /* Take data from serve --> employees*/
   getEmps(): void {
     this.empService.getEmps().subscribe(
       data => {
+        this.employees_1 = data
+      }
+    ); 
+    this.empService.paging(0 , 10).subscribe(
+      data => {
         this.employees = data
       }
-    ); // data sendto employees[]
+    )
   }
 
   Detail(empID: number) {
     this.router.navigate([`employee-detail/${empID}`]);
-    // this.empService.getEmp(empID).subscribe(data => this.emp = data);
   }
 
   // **** Update employee *******/
   Update(empID: number) {
     this.router.navigate([`employee-profile/${empID}`]);
-    // employee profile == user frofile
   }
   // **** *************** *******/
 
@@ -88,4 +101,33 @@ export class EmployeeListComponent implements OnInit {
       }
     );
   }
+
+  /***pagination **/
+  /*** get employee with limit   **/
+  EmpLimit(){
+    this.empService.paging(this.start_number, this.pageSize).subscribe(
+      data => {
+        this.empsLimit = data;
+        this.employees = data;
+        console.log('data:',this.empsLimit)
+      },
+      error => {
+
+      },
+      () => {
+
+      }
+    );
+  }
+
+  /*** get employee with nextpage   **/
+  getLimit(start_number, limit, current){
+    this.currentPage = current;
+    this.EmpLimit();
+  }
+
+  numberOfPages(){
+    return Math.ceil(this.employees_1.length/this.pageSize);
+  }
+
 }

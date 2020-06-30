@@ -5,13 +5,11 @@
       <button mat-raised-button class="btn btn-danger custom_delete_employee" >Delete</button>
       <button mat-raised-button class="btn btn-danger custom_export_employee" >Export</button> -->
       <button mat-raised-button type="button" matTooltip="Create Employee" [matTooltipPosition]="'above'"
-        class="btn  btn-sm btn-just-icon btn-info custom_add_employee"
-        (click)="New_Employee()">
+        class="btn  btn-sm btn-just-icon btn-info custom_add_employee" (click)="New_Employee()">
         <i class="material-icons">add</i>
       </button>
       <button mat-raised-button type="button" matTooltip="Delete Employee" [matTooltipPosition]="'above'"
-        class="btn  btn-sm btn-just-icon btn-danger"
-        (click)="delete_muti_Emp_checkbox()">
+        class="btn  btn-sm btn-just-icon btn-danger" (click)="delete_muti_Emp_checkbox()">
         <i class="material-icons">delete</i>
       </button>
       <button mat-raised-button type="button" matTooltip="Export File" [matTooltipPosition]="'above'"
@@ -28,10 +26,10 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table  class="table table-hover">
+              <table class="table table-hover">
                 <thead style=" font-weight: bolder;">
                   <th>
-                   <input type="checkbox" value="" (click)=SaveIDEmp($event) >
+                    <input type="checkbox" [(ngModel)]="check" value="">
                   </th>
                   <th>
                     No.
@@ -73,10 +71,10 @@
                 <tbody>
                   <tr *ngFor="let employee of employees; let i = index">
                     <td class="">
-                      <input type="checkbox" value="{{employee.empId}}" (click)=SaveIDEmp($event) >
+                      <input type="checkbox" value="{{employee.empId}}" (click)=SaveIDEmp($event)>
                     </td>
                     <td>
-                      {{i + 1}}.
+                     {{ (currentPage*pageSize) + i + 1}}.
                     </td>
                     <td>
                       {{employee.empFirstName}}
@@ -126,9 +124,16 @@
                         <i class="material-icons">close</i>
                       </button>
                     </td>
-                  </tr>
                 </tbody>
+
               </table>
+              <tfoot>
+                <div class="area-pagination">
+                  <button class="btn-pagination" [disabled]="currentPage ==0" (click)="getLimit(start_number = start_number-10,10,currentPage-1)">Previous</button>
+                  {{currentPage+1}}/{{numberOfPages()}}
+                  <button class="btn-pagination" [disabled]="currentPage >= employees_1.length/pageSize-1" (click)="getLimit(start_number = start_number +10,10,currentPage+1)">Next</button>
+                </div>
+               </tfoot>
             </div>
           </div>
         </div>
